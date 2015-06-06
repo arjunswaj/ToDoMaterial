@@ -11,6 +11,14 @@ import java.util.List;
  */
 public interface TasksDao {
 
+    String TABLE_NAME = "tasks";
+    String COL_ID = "_id";
+    String COL_NAME = "name";
+    String COL_DESCRIPTION = "description";
+    String COL_START_TIME = "start_time";
+    String COL_END_TIME = "end_time";
+    String COL_IS_COMPLETED = "is_completed";
+
     /**
      * Add a Task
      *

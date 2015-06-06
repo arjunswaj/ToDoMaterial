@@ -2,7 +2,9 @@ package com.asb.todo.model.impl;
 
 import android.database.Cursor;
 
+import com.asb.todo.ToDoApplication;
 import com.asb.todo.model.TaskModel;
+import com.asb.todo.model.dao.TasksDao;
 import com.asb.todo.model.entities.Task;
 
 import java.util.List;
@@ -11,6 +13,12 @@ import java.util.List;
  * Created by arjun on 06/06/15.
  */
 public class TaskModelImpl implements TaskModel {
+    private TasksDao mTasksDao;
+
+    public TaskModelImpl() {
+        mTasksDao = ToDoApplication.getInstance().getDaoService().getTasksDao();
+    }
+
     @Override
     public Cursor getNewTasks() {
         return null;
