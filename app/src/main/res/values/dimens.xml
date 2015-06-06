@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="task_description_vertical_margin">16dp</dimen>
     <dimen name="task_time_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

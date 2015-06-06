@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.asb.todo.fragments.NewTasksFragment;
+import com.asb.todo.fragments.TasksContainerFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().beginTransaction().add(R.id.container, NewTasksFragment.newInstance())
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, TasksContainerFragment.newInstance())
                 .commit();
     }
 
