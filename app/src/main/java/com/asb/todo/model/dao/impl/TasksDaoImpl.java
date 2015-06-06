@@ -1,6 +1,7 @@
 package com.asb.todo.model.dao.impl;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.asb.todo.model.dao.TasksDao;
 import com.asb.todo.model.entities.Task;
@@ -11,6 +12,12 @@ import java.util.List;
  * Created by arjun on 06/06/15.
  */
 public class TasksDaoImpl implements TasksDao {
+
+    private SQLiteDatabase database;
+
+    public TasksDaoImpl(SQLiteDatabase database) {
+        this.database = database;
+    }
 
     @Override
     public void addTask(Task task) {
