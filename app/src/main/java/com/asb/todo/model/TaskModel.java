@@ -55,28 +55,36 @@ public interface TaskModel {
     Task updateTask(Task task);
 
     /**
-     * Deletes the task
+     * Marks the tasks complete and returns the ids, in case required for undo
      *
-     * @param task task to be deleted
-     * @return Old state of the task, in case required for undo
+     * @param ids Ids to be marked complete
+     * @return Ids of the tasks marked complete
      */
-    Task deleteTask(Task task);
+    List<Long> markTasksComplete(List<Long> ids);
 
     /**
-     * Marks the tasks complete and returns the old state, in case required for undo
+     * Marks the task complete and returns the id, in case required for undo
      *
-     * @param ids Ids to be updated
-     * @return Old state of the task
+     * @param id Id to be marked complete
+     * @return Id of the tasks marked complete
      */
-    List<Task> markTasksComplete(List<Long> ids);
+    long markTaskComplete(long id);
 
     /**
-     * Marks the task complete and returns the old state, in case required for undo
+     * Marks the tasks complete and returns the ids, in case required for undo
      *
-     * @param id Id to be updated
-     * @return Old state of the task
+     * @param ids Ids to be marked complete
+     * @return Ids of the tasks marked complete
      */
-    Task markTaskComplete(long id);
+    List<Long> markTasksIncomplete(List<Long> ids);
+
+    /**
+     * Marks the task incomplete and returns the id, in case required for undo
+     *
+     * @param id Id to be marked complete
+     * @return Id of the tasks marked complete
+     */
+    long markTaskIncomplete(long id);
 
     /**
      * Deletes the tasks and returns the old state, in case required for undo
@@ -97,26 +105,58 @@ public interface TaskModel {
 
     /**
      * Undo the deletes
+     *
      * @param tasks tasks to be re-added
      */
     void undoDeletes(List<Task> tasks);
 
     /**
      * Undo the delete
+     *
      * @param task task to be re-added
      */
     void undoDelete(Task task);
 
     /**
      * Undo the updates
+     *
      * @param tasks tasks to be reverted
      */
     void undoUpdates(List<Task> tasks);
 
     /**
      * Undo the update
+     *
      * @param task task to be reverted
      */
     void undoUpdate(Task task);
+
+    /**
+     * Undo marking task complete
+     *
+     * @param id id of the task
+     */
+    void undoMarkTaskComplete(long id);
+
+    /**
+     * Undo marking tasks complete
+     *
+     * @param ids ids of the tasks
+     */
+    void undoMarkTasksComplete(List<Long> ids);
+
+    /**
+     * Undo marking task incomplete
+     *
+     * @param id id of the task
+     */
+    void undoMarkTaskIncomplete(long id);
+
+    /**
+     * Undo marking task incomplete
+     *
+     * @param ids ids of the task
+     */
+    void undoMarkTasksIncomplete(List<Long> ids);
 
 }

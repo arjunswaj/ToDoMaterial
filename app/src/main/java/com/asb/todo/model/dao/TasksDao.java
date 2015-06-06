@@ -11,6 +11,8 @@ import java.util.List;
  */
 public interface TasksDao {
 
+    int FALSE = 0;
+    int TRUE = 1;
     String TABLE_NAME = "tasks";
     String COL_ID = "_id";
     String COL_NAME = "name";
@@ -25,7 +27,7 @@ public interface TasksDao {
             COL_DESCRIPTION + " text," +
             COL_START_TIME + " integer not null," +
             COL_END_TIME + " integer not null," +
-            COL_IS_COMPLETED + " integer default 0 )";
+            COL_IS_COMPLETED + " integer default " + FALSE + " )";
 
     /**
      * Add a Task
@@ -91,5 +93,23 @@ public interface TasksDao {
      * @return Cursor pointing to the tasks
      */
     Cursor getTasks(String selection, String[] selectionArgs, String groupBy, String orderBy);
+
+    /**
+     * Updates the completeness of the Task
+     *
+     * @param complete whether the task is complete
+     * @param id       id to be marked
+     * @return id to be returned, in case of undo
+     */
+    long updateCompletenessOfTask(boolean complete, long id);
+
+    /**
+     * Updates the completeness of the Tasks
+     *
+     * @param complete whether the task is complete
+     * @param ids      list of ids to be marked
+     * @return list of ids to be returned, in case of undo
+     */
+    List<Long> updateCompletenessOfTasks(boolean complete, List<Long> ids);
 
 }

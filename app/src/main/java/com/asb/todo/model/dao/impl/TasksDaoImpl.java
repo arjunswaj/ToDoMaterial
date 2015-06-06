@@ -16,8 +16,6 @@ import java.util.List;
  */
 public class TasksDaoImpl implements TasksDao {
 
-    public static final int FALSE = 0;
-    public static final int TRUE = 1;
     private static final String FIND_BY_ID = COL_ID + " =  ?";
     private SQLiteDatabase database;
 
@@ -107,6 +105,34 @@ public class TasksDaoImpl implements TasksDao {
     public Cursor getTasks(String selection, String[] selectionArgs, String groupBy,
                            String orderBy) {
         return database.query(TABLE_NAME, null, selection, selectionArgs, groupBy, null, orderBy);
+    }
+
+    @Override
+    public long updateCompletenessOfTask(boolean complete, long id) {
+        ContentValues values = new ContentValues();
+        if (complete) {
+            values.put(COL_IS_COMPLETED, TRUE);
+        }
+        else {
+            values.put(COL_IS_COMPLETED, FALSE);
+        }
+        String[] selectionArgs = {String.valueOf(id)};
+        database.update(TABLE_NAME, values, FIND_BY_ID, selectionArgs);
+        return id;
+    }
+
+    @Override
+    public List<Long> updateCompletenessOfTasks(boolean complete, List<Long> ids) {
+        database.beginTransaction();
+        try {
+            for (long id : ids) {
+                updateCompletenessOfTask(complete, id);
+            }
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
+        }
+        return ids;
     }
 
     private ContentValues getContentValuesFromTask(Task task) {
