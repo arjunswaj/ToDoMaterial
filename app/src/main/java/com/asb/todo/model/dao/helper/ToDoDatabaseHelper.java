@@ -14,13 +14,6 @@ public class ToDoDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "tasks.sqlite";
 
     private static final int DATABASE_VERSION = 1;
-    private static final String CREATE_TASKS_TABLE = "CREATE TABLE " + TasksDao.TABLE_NAME + " (" +
-            TasksDao.COL_ID + " integer primary key autoincrement, " +
-            TasksDao.COL_NAME + " string not null," +
-            TasksDao.COL_DESCRIPTION + " text," +
-            TasksDao.COL_START_TIME + " integer not null," +
-            TasksDao.COL_END_TIME + " integer not null," +
-            TasksDao.COL_IS_COMPLETED + " integer default 0 )";
 
 
     public ToDoDatabaseHelper(Context context) {
@@ -29,7 +22,7 @@ public class ToDoDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TASKS_TABLE);
+        db.execSQL(TasksDao.CREATE_TASKS_TABLE);
     }
 
     @Override

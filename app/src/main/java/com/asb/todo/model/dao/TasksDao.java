@@ -19,6 +19,14 @@ public interface TasksDao {
     String COL_END_TIME = "end_time";
     String COL_IS_COMPLETED = "is_completed";
 
+    String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
+            COL_ID + " integer primary key autoincrement, " +
+            COL_NAME + " string not null," +
+            COL_DESCRIPTION + " text," +
+            COL_START_TIME + " integer not null," +
+            COL_END_TIME + " integer not null," +
+            COL_IS_COMPLETED + " integer default 0 )";
+
     /**
      * Add a Task
      *
