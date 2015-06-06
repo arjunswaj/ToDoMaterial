@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/mark_complete"
-        android:layout_toStartOf="@+id/mark_complete"
+        android:layout_toLeftOf="@+id/complete"
+        android:layout_toStartOf="@+id/complete"
         android:text="@string/task_name"/>
 
     <TextView
@@ -21,8 +21,8 @@
         android:layout_below="@+id/task_name"
         android:layout_marginLeft="@dimen/task_description_vertical_margin"
         android:layout_marginRight="@dimen/task_description_vertical_margin"
-        android:layout_toLeftOf="@+id/mark_complete"
-        android:layout_toStartOf="@+id/mark_complete"
+        android:layout_toLeftOf="@+id/complete"
+        android:layout_toStartOf="@+id/complete"
         android:text="@string/task_description"/>
 
     <TextView
@@ -46,17 +46,16 @@
         android:layout_marginLeft="@dimen/task_time_vertical_margin"
         android:layout_marginRight="@dimen/task_time_vertical_margin"
         android:layout_toEndOf="@+id/task_start_time"
-        android:layout_toLeftOf="@+id/mark_complete"
+        android:layout_toLeftOf="@+id/complete"
         android:layout_toRightOf="@+id/task_start_time"
-        android:layout_toStartOf="@+id/mark_complete"
+        android:layout_toStartOf="@+id/complete"
         android:text="@string/task_end_time"/>
 
-    <ImageButton
-        android:id="@+id/mark_complete"
+    <CheckBox
+        android:id="@+id/complete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/abc_btn_check_to_on_mtrl_015"/>
+        android:layout_centerVertical="true"/>
 </RelativeLayout>
