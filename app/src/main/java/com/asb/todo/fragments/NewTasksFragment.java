@@ -28,7 +28,7 @@ public class NewTasksFragment extends TasksFragment {
     @Override
     public void onResume() {
         super.onResume();
-        mAdapter = new TasksAdapter(getActivity().getApplicationContext(), null);
+        mAdapter = new TasksAdapter(getActivity(), null);
         mListView.setAdapter(mAdapter);
         reloadData();
     }
