@@ -38,6 +38,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/abc_ic_menu_paste_mtrl_am_alpha"/>
+        android:src="@drawable/ic_add"/>
 
 </android.support.design.widget.CoordinatorLayout>
