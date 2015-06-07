@@ -58,7 +58,7 @@ public class TaskModelImpl implements TaskModel {
 
     @Override
     public Cursor getCompletedTasks() {
-        String[] selectionArgs = {String.valueOf(TasksDao.FALSE)};
+        String[] selectionArgs = {String.valueOf(TasksDao.TRUE)};
         return mTasksDao
                 .getTasks(COMPLETED_TASKS_SELECTION, selectionArgs, null, COMPLETED_TASKS_ORDER_BY);
     }
