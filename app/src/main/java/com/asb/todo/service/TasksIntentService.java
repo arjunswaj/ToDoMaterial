@@ -66,7 +66,7 @@ public class TasksIntentService extends IntentService {
             protected NotificationCompat.Builder doInBackground(Void... params) {
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(getApplicationContext());
-                String title = getString(R.string.new_tasks);
+                String title = getString(R.string.new_tasks_notif);
                 builder.setSmallIcon(R.drawable.ic_task_notif)
                         .setContentTitle(title);
                 NotificationCompat.InboxStyle style = new NotificationCompat.InboxStyle();
@@ -102,7 +102,7 @@ public class TasksIntentService extends IntentService {
             protected NotificationCompat.Builder doInBackground(Void... params) {
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(getApplicationContext());
-                String title = getString(R.string.pending_tasks);
+                String title = getString(R.string.pending_tasks_notif);
                 builder.setSmallIcon(R.drawable.ic_task_notif)
                         .setContentTitle(title);
                 NotificationCompat.InboxStyle style = new NotificationCompat.InboxStyle();

@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     public static final String ACTION_SHOW_NEW_TASKS = "ACTION_SHOW_NEW_TASKS";
     public static final String ACTION_SHOW_PENDING_TASKS = "ACTION_SHOW_PENDING_TASKS";
+    public static final int NEW_TASKS_TAB = 1;
+    public static final int PENDING_TASKS_TAB = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,22 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewPager);
+
+        loadSpecificTabIfPassedbyIntent(viewPager);
+    }
+
+    private void loadSpecificTabIfPassedbyIntent(ViewPager viewPager) {
+        Intent intent = getIntent();
+        if (null != intent && null != intent.getAction()) {
+            switch (intent.getAction()) {
+                case ACTION_SHOW_NEW_TASKS:
+                    viewPager.setCurrentItem(NEW_TASKS_TAB, true);
+                    break;
+                case ACTION_SHOW_PENDING_TASKS:
+                    viewPager.setCurrentItem(PENDING_TASKS_TAB, true);
+                    break;
+            }
+        }
     }
 
     @Override
