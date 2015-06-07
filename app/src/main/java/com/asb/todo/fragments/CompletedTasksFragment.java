@@ -30,7 +30,7 @@ public class CompletedTasksFragment extends TasksFragment {
         reloadData();
     }
 
-    private void reloadData() {
+    protected void reloadData() {
         getLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 

@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.asb.todo.R;
@@ -28,7 +27,6 @@ public class TasksAdapter extends CursorAdapter {
         TextView name;
         TextView description;
         TextView taskTime;
-        CheckBox complete;
     }
 
     private DateFormat dateFormatter;
@@ -49,16 +47,15 @@ public class TasksAdapter extends CursorAdapter {
         holder.name = (TextView) view.findViewById(R.id.task_name);
         holder.description = (TextView) view.findViewById(R.id.task_description);
         holder.taskTime = (TextView) view.findViewById(R.id.task_time);
-        holder.complete = (CheckBox) view.findViewById(R.id.complete);
-
         view.setTag(holder);
 
         return view;
     }
 
     @Override
-    public void bindView(View view, Context context, Cursor cursor) {
+    public void bindView(View view, Context context, final Cursor cursor) {
         ViewHolder holder = (ViewHolder) view.getTag();
+        final long id = cursor.getLong(cursor.getColumnIndex(TasksDao.COL_ID));
         String name = cursor.getString(cursor.getColumnIndex(TasksDao.COL_NAME));
         String description = cursor.getString(cursor.getColumnIndex(TasksDao.COL_DESCRIPTION));
         long startTimeInMs = cursor.getLong(cursor.getColumnIndex(TasksDao.COL_START_TIME));
@@ -81,6 +78,5 @@ public class TasksAdapter extends CursorAdapter {
             holder.description.setVisibility(View.GONE);
         }
         holder.taskTime.setText(context.getString(R.string.task_time, startTime, endTime));
-        holder.complete.setChecked(completed);
     }
 }

@@ -27,4 +27,8 @@
     <string name="new_tasks_notif">New tasks</string>
     <string name="pending_tasks_notif">Pending tasks</string>
     <string name="more_tasks">%1$d more tasks</string>
+
+    <string name="task_marked_complete">Task completed</string>
+    <string name="task_marked_incomplete">Task pending</string>
+    <string name="undo">Undo</string>
 </resources>

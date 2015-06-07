@@ -29,7 +29,8 @@ public class PendingTasksFragment extends TasksFragment {
         super.onResume();
         reloadData();
     }
-    private void reloadData() {
+
+    protected void reloadData() {
         getLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 
