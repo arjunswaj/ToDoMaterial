@@ -34,7 +34,12 @@
         <receiver
             android:name=".receiver.TaskAlarmReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.asb.todo.alarm.ACTION_TASK_START"/>
+                <action android:name="com.asb.todo.alarm.ACTION_TASK_END"/>
+            </intent-filter>
         </receiver>
 
         <service

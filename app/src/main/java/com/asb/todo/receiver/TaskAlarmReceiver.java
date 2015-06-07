@@ -9,8 +9,8 @@ import com.asb.todo.service.TasksIntentService;
 
 public class TaskAlarmReceiver extends WakefulBroadcastReceiver {
 
-    public static final String ACTION_TASK_START = "ACTION_TASK_START";
-    public static final String ACTION_TASK_END = "ACTION_TASK_END";
+    public static final String ACTION_TASK_START = "com.asb.todo.alarm.ACTION_TASK_START";
+    public static final String ACTION_TASK_END = "com.asb.todo.alarm.ACTION_TASK_END";
 
     public TaskAlarmReceiver() {
     }

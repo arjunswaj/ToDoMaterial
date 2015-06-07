@@ -81,6 +81,7 @@ public class TasksIntentService extends IntentService {
                 PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0,
                         intent, 0);
                 builder.setContentIntent(contentIntent);
+                builder.setAutoCancel(true);
                 return builder;
             }
 
@@ -101,7 +102,7 @@ public class TasksIntentService extends IntentService {
             protected NotificationCompat.Builder doInBackground(Void... params) {
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(getApplicationContext());
-                String title = getString(R.string.new_tasks);
+                String title = getString(R.string.pending_tasks);
                 builder.setSmallIcon(R.drawable.ic_task_notif)
                         .setContentTitle(title);
                 NotificationCompat.InboxStyle style = new NotificationCompat.InboxStyle();
@@ -116,6 +117,7 @@ public class TasksIntentService extends IntentService {
                 PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0,
                         intent, 0);
                 builder.setContentIntent(contentIntent);
+                builder.setAutoCancel(true);
                 return builder;
             }
 

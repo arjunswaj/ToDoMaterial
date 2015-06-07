@@ -80,7 +80,7 @@ public class TaskModelImpl implements TaskModel {
         alarmIntent =
                 PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        alarmMgr.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+        alarmMgr.set(AlarmManager.RTC_WAKEUP,
                 task.getStartTime(), alarmIntent);
 
         intent = new Intent(context, TaskAlarmReceiver.class);
@@ -88,7 +88,7 @@ public class TaskModelImpl implements TaskModel {
         alarmIntent =
                 PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        alarmMgr.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+        alarmMgr.set(AlarmManager.RTC_WAKEUP,
                 task.getEndTime(), alarmIntent);
     }
 
