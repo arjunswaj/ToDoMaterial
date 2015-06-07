@@ -40,8 +40,8 @@
                     android:id="@+id/task_start_time"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/task_time_vertical_margin"
-                    android:layout_marginRight="@dimen/task_time_vertical_margin"
+                    android:layout_marginLeft="@dimen/task_time_margin"
+                    android:layout_marginRight="@dimen/task_time_margin"
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="@string/task_start_time"/>
@@ -50,8 +50,8 @@
                     android:id="@+id/task_start_date"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/task_time_vertical_margin"
-                    android:layout_marginRight="@dimen/task_time_vertical_margin"
+                    android:layout_marginLeft="@dimen/task_time_margin"
+                    android:layout_marginRight="@dimen/task_time_margin"
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="@string/task_start_date"/>
@@ -84,8 +84,8 @@
                     android:id="@+id/task_end_time"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/task_time_vertical_margin"
-                    android:layout_marginRight="@dimen/task_time_vertical_margin"
+                    android:layout_marginLeft="@dimen/task_time_margin"
+                    android:layout_marginRight="@dimen/task_time_margin"
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="@string/task_end_time"/>
@@ -94,8 +94,8 @@
                     android:id="@+id/task_end_date"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/task_time_vertical_margin"
-                    android:layout_marginRight="@dimen/task_time_vertical_margin"
+                    android:layout_marginLeft="@dimen/task_time_margin"
+                    android:layout_marginRight="@dimen/task_time_margin"
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="@string/task_end_date"/>

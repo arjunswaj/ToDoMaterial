@@ -19,7 +19,8 @@ import com.asb.todo.model.impl.TaskModelImpl;
 /**
  * Tasks fragment containing a simple view.
  */
-public abstract class TasksFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
+public abstract class TasksFragment extends Fragment
+        implements LoaderManager.LoaderCallbacks<Cursor> {
 
     protected TaskModel model;
     protected ListView mListView;
@@ -44,7 +45,7 @@ public abstract class TasksFragment extends Fragment implements LoaderManager.Lo
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        mAdapter.swapCursor(data);
+        mAdapter.changeCursor(data);
     }
 
     @Override
