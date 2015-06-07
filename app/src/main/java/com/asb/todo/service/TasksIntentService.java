@@ -22,6 +22,7 @@ public class TasksIntentService extends IntentService {
     private static final String ACTION_TASK_ENDED = "com.asb.todo.service.action.TASK_ENDED";
     private static final int TASKS_STARTED_ID = 1000;
     private static final int TASKS_ENDED_ID = 1001;
+    public static final String NEW_LINE = "\n";
 
     private TaskModel model;
 
@@ -71,9 +72,10 @@ public class TasksIntentService extends IntentService {
                         .setContentTitle(title);
                 NotificationCompat.InboxStyle style = new NotificationCompat.InboxStyle();
                 Cursor cursor = model.getCurrentTasks();
-                fillFromCursor(cursor, style);
+                String contentText = fillFromCursor(cursor, style);
                 style.setBigContentTitle(title);
                 builder.setStyle(style);
+                builder.setContentText(contentText);
                 long[] vibrate = {500, 500};
                 builder.setVibrate(vibrate);
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -107,8 +109,9 @@ public class TasksIntentService extends IntentService {
                         .setContentTitle(title);
                 NotificationCompat.InboxStyle style = new NotificationCompat.InboxStyle();
                 Cursor cursor = model.getPendingTasks();
-                fillFromCursor(cursor, style);
+                String contentText = fillFromCursor(cursor, style);
                 style.setBigContentTitle(title);
+                builder.setContentText(contentText);
                 builder.setStyle(style);
                 long[] vibrate = {500, 700, 200, 700};
                 builder.setVibrate(vibrate);
@@ -132,12 +135,37 @@ public class TasksIntentService extends IntentService {
     }
 
 
-    private void fillFromCursor(Cursor cursor, NotificationCompat.InboxStyle style) {
+    private String fillFromCursor(Cursor cursor, NotificationCompat.InboxStyle style) {
+        StringBuilder sb = new StringBuilder();
+        int counter = 0;
+        String newLine = "";
+        int count = cursor.getCount();
         if (cursor.moveToFirst()) {
             do {
+                counter += 1;
+                if (counter < 3) {
+                    String name = cursor.getString(cursor.getColumnIndex(TasksDao.COL_NAME));
+                    style.addLine(name);
+                    sb.append(newLine).append(name);
+                    newLine = NEW_LINE;
+                }
+                else {
+                    break;
+                }
+            } while (cursor.moveToNext());
+
+            if (4 == count) {
                 String name = cursor.getString(cursor.getColumnIndex(TasksDao.COL_NAME));
                 style.addLine(name);
-            } while (cursor.moveToNext());
+                sb.append(newLine).append(name);
+            }
+            else {
+                int remainingTasks = count - counter + 1;
+                String summary = getString(R.string.more_tasks, remainingTasks);
+                style.addLine(summary);
+                sb.append(newLine).append(summary);
+            }
         }
+        return sb.toString();
     }
 }

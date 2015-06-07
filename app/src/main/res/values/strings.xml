@@ -25,4 +25,5 @@
 
     <string name="new_tasks_notif">New tasks</string>
     <string name="pending_tasks_notif">Pending tasks</string>
+    <string name="more_tasks">%2$d more tasks</string>
 </resources>
