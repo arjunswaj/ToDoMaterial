@@ -13,7 +13,9 @@ import com.asb.todo.R;
 import com.asb.todo.model.dao.TasksDao;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 
 /**
@@ -29,8 +31,13 @@ public class TasksAdapter extends CursorAdapter {
         CheckBox complete;
     }
 
+    private DateFormat dateFormatter;
+
     public TasksAdapter(Context context, Cursor c) {
         super(context, c, 0);
+        dateFormatter =
+                new SimpleDateFormat(context.getString(R.string.task_timestamp_format),
+                        Locale.ENGLISH);
     }
 
     @Override
@@ -60,11 +67,11 @@ public class TasksAdapter extends CursorAdapter {
         boolean completed =
                 (TasksDao.TRUE == cursor.getLong(cursor.getColumnIndex(TasksDao.COL_IS_COMPLETED)));
 
-        DateFormat df = DateFormat.getDateTimeInstance();
+
         Date startDate = new Date(startTimeInMs);
-        String startTime = df.format(startDate);
+        String startTime = dateFormatter.format(startDate);
         Date endDate = new Date(endTimeInMs);
-        String endTime = df.format(endDate);
+        String endTime = dateFormatter.format(endDate);
 
         holder.name.setText(name);
         holder.description.setText(description);

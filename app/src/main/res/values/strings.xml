@@ -13,8 +13,9 @@
 
     <string name="task_name_cannot_be_empty">Task name cannot be empty</string>
 
+    <string name="task_timestamp_format">HH:mm dd/MMM</string>
     <string name="task_time_format">HH:mm</string>
-    <string name="task_date_format">dd MMM</string>
+    <string name="task_date_format">dd/MMM</string>
 
     <string name="new_tasks">New</string>
     <string name="current_tasks">Current</string>
