@@ -79,7 +79,7 @@ public class AddTaskFragment extends Fragment {
         description = (EditText) rootView.findViewById(R.id.description);
         startTime = (TextView) rootView.findViewById(R.id.task_start_time);
         startDate = (TextView) rootView.findViewById(R.id.task_start_date);
-        endTime = (TextView) rootView.findViewById(R.id.task_end_time);
+        endTime = (TextView) rootView.findViewById(R.id.task_time);
         endDate = (TextView) rootView.findViewById(R.id.task_end_date);
 
         long now = System.currentTimeMillis() + FIVE_MINUTES;

@@ -6,6 +6,7 @@
     <string name="task_description">Task Description</string>
     <string name="start">Start</string>
     <string name="end">End</string>
+    <string name="task_time">%1$s to %2$s</string>
     <string name="task_start_time">12:34</string>
     <string name="task_start_date">Sep 11</string>
     <string name="task_end_time">16:34</string>
