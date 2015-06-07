@@ -3,7 +3,6 @@ package com.asb.todo.model.dao.impl;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
 
 import com.asb.todo.model.dao.TasksDao;
 import com.asb.todo.model.entities.Task;
@@ -138,9 +137,7 @@ public class TasksDaoImpl implements TasksDao {
     private ContentValues getContentValuesFromTask(Task task) {
         ContentValues values = new ContentValues();
         values.put(COL_NAME, task.getName());
-        if (!TextUtils.isEmpty(task.getDescription())) {
-            values.put(COL_DESCRIPTION, task.getDescription());
-        }
+        values.put(COL_DESCRIPTION, task.getDescription());
         values.put(COL_START_TIME, task.getStartTime());
         values.put(COL_END_TIME, task.getEndTime());
         if (task.isCompleted()) {

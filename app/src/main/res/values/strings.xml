@@ -2,10 +2,19 @@
     <string name="app_name">To Do</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_save">Save</string>
-    <string name="task_name">Name of the Task</string>
-    <string name="task_description">Description of the Task</string>
+    <string name="task_name">Task Name</string>
+    <string name="task_description">Task Description</string>
+    <string name="start">Start</string>
+    <string name="end">End</string>
     <string name="task_start_time">12:34</string>
+    <string name="task_start_date">Sep 11</string>
     <string name="task_end_time">16:34</string>
+    <string name="task_end_date">Sep 11</string>
+
+    <string name="task_name_cannot_be_empty">Task name cannot be empty</string>
+
+    <string name="task_time_format">HH:mm</string>
+    <string name="task_date_format">dd MMM</string>
 
     <string name="new_tasks">New</string>
     <string name="current_tasks">Current</string>

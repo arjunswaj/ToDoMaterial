@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import com.asb.todo.fragments.AddTaskFragment;
 
 
-public class TaskActivity extends AppCompatActivity {
+public class TaskActivity extends AppCompatActivity implements AddTaskFragment.Listener {
 
     public static final String ACTION_ADD_TASK = "ACTION_ADD_TASK";
 
@@ -44,5 +44,10 @@ public class TaskActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onSaveComplete() {
+        finish();
     }
 }
