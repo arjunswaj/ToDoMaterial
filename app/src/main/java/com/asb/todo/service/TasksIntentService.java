@@ -22,7 +22,7 @@ public class TasksIntentService extends IntentService {
     private static final String ACTION_TASK_ENDED = "com.asb.todo.service.action.TASK_ENDED";
     private static final int TASKS_STARTED_ID = 1000;
     private static final int TASKS_ENDED_ID = 1001;
-    public static final String NEW_LINE = "\n";
+    public static final String COMMA = ", ";
 
     private TaskModel model;
 
@@ -138,7 +138,7 @@ public class TasksIntentService extends IntentService {
     private String fillFromCursor(Cursor cursor, NotificationCompat.InboxStyle style) {
         StringBuilder sb = new StringBuilder();
         int counter = 0;
-        String newLine = "";
+        String comma = "";
         int count = cursor.getCount();
         if (cursor.moveToFirst()) {
             do {
@@ -146,25 +146,26 @@ public class TasksIntentService extends IntentService {
                 if (counter < 3) {
                     String name = cursor.getString(cursor.getColumnIndex(TasksDao.COL_NAME));
                     style.addLine(name);
-                    sb.append(newLine).append(name);
-                    newLine = NEW_LINE;
+                    sb.append(comma).append(name);
+                    comma = COMMA;
                 }
                 else {
                     break;
                 }
             } while (cursor.moveToNext());
 
-            if (4 == count) {
+            if (3 == count) {
                 String name = cursor.getString(cursor.getColumnIndex(TasksDao.COL_NAME));
                 style.addLine(name);
-                sb.append(newLine).append(name);
+                sb.append(comma).append(name);
             }
-            else {
+            else if (count > 3) {
                 int remainingTasks = count - counter + 1;
                 String summary = getString(R.string.more_tasks, remainingTasks);
                 style.addLine(summary);
-                sb.append(newLine).append(summary);
+                sb.append(comma).append(summary);
             }
+
         }
         return sb.toString();
     }
