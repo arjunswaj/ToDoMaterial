@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">To Do</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_save">Save</string>
     <string name="task_name">Name of the Task</string>
     <string name="task_description">Description of the Task</string>
     <string name="task_start_time">12:34</string>
@@ -11,5 +11,6 @@
     <string name="current_tasks">Current</string>
     <string name="pending_tasks">Pending</string>
     <string name="completed_tasks">Completed</string>
+    <string name="title_activity_task">Tasks</string>
 
 </resources>
