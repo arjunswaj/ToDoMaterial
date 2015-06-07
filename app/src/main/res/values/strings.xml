@@ -23,4 +23,6 @@
     <string name="completed_tasks">Completed</string>
     <string name="title_activity_task">Tasks</string>
 
+    <string name="new_tasks_notif">New tasks</string>
+    <string name="pending_tasks_notif">Pending tasks</string>
 </resources>

@@ -6,7 +6,6 @@ import android.support.v4.content.Loader;
 
 import com.asb.todo.facade.DataLoader;
 import com.asb.todo.facade.impl.NewTasksDataLoader;
-import com.asb.todo.ui.adapters.TasksAdapter;
 import com.asb.todo.ui.loaders.TasksLoader;
 
 /**
@@ -28,13 +27,11 @@ public class NewTasksFragment extends TasksFragment {
     @Override
     public void onResume() {
         super.onResume();
-        mAdapter = new TasksAdapter(getActivity(), null);
-        mListView.setAdapter(mAdapter);
         reloadData();
     }
 
     private void reloadData() {
-        getActivity().getSupportLoaderManager().initLoader(LOADER_ID, null, this);
+        getLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 
     @Override

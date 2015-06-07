@@ -20,6 +20,10 @@ import com.asb.todo.ui.adapters.TasksPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String TAG = MainActivity.class.getSimpleName();
+    public static final String ACTION_SHOW_NEW_TASKS = "ACTION_SHOW_NEW_TASKS";
+    public static final String ACTION_SHOW_PENDING_TASKS = "ACTION_SHOW_PENDING_TASKS";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,11 +1,16 @@
 package com.asb.todo.model.impl;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 
 import com.asb.todo.ToDoApplication;
 import com.asb.todo.model.TaskModel;
 import com.asb.todo.model.dao.TasksDao;
 import com.asb.todo.model.entities.Task;
+import com.asb.todo.receiver.TaskAlarmReceiver;
 
 import java.util.List;
 
@@ -66,7 +71,25 @@ public class TaskModelImpl implements TaskModel {
     @Override
     public void saveTask(Task task) {
         mTasksDao.addTask(task);
-        // TODO: set alarm
+        Context context = ToDoApplication.getInstance().getApplicationContext();
+        AlarmManager alarmMgr;
+        PendingIntent alarmIntent;
+        alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, TaskAlarmReceiver.class);
+        intent.setAction(TaskAlarmReceiver.ACTION_TASK_START);
+        alarmIntent =
+                PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        alarmMgr.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                task.getStartTime(), alarmIntent);
+
+        intent = new Intent(context, TaskAlarmReceiver.class);
+        intent.setAction(TaskAlarmReceiver.ACTION_TASK_END);
+        alarmIntent =
+                PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        alarmMgr.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                task.getEndTime(), alarmIntent);
     }
 
     @Override

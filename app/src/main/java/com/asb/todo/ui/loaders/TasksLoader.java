@@ -20,6 +20,7 @@ public class TasksLoader extends CursorLoader {
 
     @Override
     public Cursor loadInBackground() {
-        return dataLoader.getTasksCursor();
+        Cursor cursor = dataLoader.getTasksCursor();
+        return cursor;
     }
 }

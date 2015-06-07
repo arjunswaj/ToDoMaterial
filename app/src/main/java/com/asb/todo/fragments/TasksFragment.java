@@ -14,6 +14,7 @@ import android.widget.ListView;
 import com.asb.todo.R;
 import com.asb.todo.model.TaskModel;
 import com.asb.todo.model.impl.TaskModelImpl;
+import com.asb.todo.ui.adapters.TasksAdapter;
 
 
 /**
@@ -40,12 +41,14 @@ public abstract class TasksFragment extends Fragment
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_tasks, container, false);
         mListView = (ListView) rootView.findViewById(R.id.tasks_list);
+        mAdapter = new TasksAdapter(getActivity(), null);
+        mListView.setAdapter(mAdapter);
         return rootView;
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        mAdapter.changeCursor(data);
+        mAdapter.swapCursor(data);
     }
 
     @Override
